@@ -1,12 +1,6 @@
 import json
 
-file = 'json-files/names.json'
-
-
-def deconstruction_var_json():
+def deconstruction_var_json(file):
     with open(file, 'r') as json_file:
-        data = json.load(json_file)
-        print(data)
+        return json.load(json_file)
 
-
-deconstruction_var_json()

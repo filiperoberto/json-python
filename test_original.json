@@ -1,1 +1,4 @@
-b'<pre>\n{\n"id": 4051,\\n\n"name": "manoj",\\n\n"email": "manoj@gmail.com",\\n\n"token": "7f471974-ae46-4ac0-a882-1980c300c4d6",\\n\n"country": USA,\\n"dob": 26/05/1963,\\n\n"userType": 1,\\n"userStatus": 1,\n}\n</pre>\n'
+{
+    "nome": "filipe",
+    "idade": 33
+}

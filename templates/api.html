@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leitura e escrita de JSON</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h2>Escritor e leitor de JSON</h2>
+        <input type='text' class='form-control' id="text-area" cols="30" rows="10"/>
+        <button onclick="salvar()">Salvar</button>
+    </div>
+    <script>
+
+        // aqui ele está pegando o campo de formulário para manipularmos o json
+        let input = document.getElementById('text-area')
+
+        //esta função chama o python pedindo para carregar o json
+        async function carregarJson() {
+
+            const response = await fetch('/');
+            const data = await response.json();
+
+            //aqui ele pega o conteúdo do json e coloca no formulário (input)
+
+            input.value = JSON.stringify(data)
+        }
+
+        // quando clicar no botão salvar ele pega o conteúdo do campo de texto e chama o python, passando o json para salvar
+
+        //aqui só tem que tomar cuidado, se não for um json correto vai dar pau no python
+
+        async function salvar() {
+
+            await fetch('/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+              body: input.value
+            });
+        }
+
+        carregarJson();
+    </script>
+</body>
+</html>
